@@ -46,5 +46,12 @@ So I can manage my personal finances
 I would like to open a bank account
 ```
 
+```
+As a user 
+So I can keep my money safe
+I would like to place a deposit to my account
+```
+
+
 
 

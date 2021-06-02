@@ -3,10 +3,17 @@
 require 'bank_account'
 
 describe BankAccount do
-  context '#balance' do
+  let(:account) { described_class.new }
+
+  describe '#balance' do
     it 'returns a default balance of zero' do
-      expect(subject.balance).to eq 0
+      expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
     end
   end
 
+  describe '#deposit' do
+    it 'increases the balance by the deposit amount' do
+      expect(account.deposit(500)).to eq 500
+    end
+  end
 end
