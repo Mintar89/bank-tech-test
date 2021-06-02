@@ -52,6 +52,14 @@ So I can keep my money safe
 I would like to place a deposit to my account
 ```
 
+```
+As a user
+So I can remove money from my bank account
+I would like to make a withdrawal 
+```
+
+
+
 
 
 

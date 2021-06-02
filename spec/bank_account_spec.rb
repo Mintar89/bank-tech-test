@@ -16,4 +16,14 @@ describe BankAccount do
       expect(account.deposit(500)).to eq 500
     end
   end
+
+  describe '#withdraw' do
+    it 'reduces the balance by the specified amount' do
+      account.deposit(2000)
+      account.withdraw(500)
+      expect(account.balance).to eq 1500
+    end
+  end
+
+
 end
