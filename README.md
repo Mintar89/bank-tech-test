@@ -58,6 +58,12 @@ So I can remove money from my bank account
 I would like to make a withdrawal 
 ```
 
+```
+As a user
+So I can see my account history
+I would like to print my bank statement 
+```
+
 
 
 
