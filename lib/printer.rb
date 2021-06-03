@@ -12,5 +12,4 @@ class Printer
       puts "#{transaction.date} || #{'%.2f' % transaction.credit} || #{'%.2f' % transaction.debit} || #{'%.2f' % transaction.current_balance}"
     end
   end
-  
 end

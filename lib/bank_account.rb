@@ -26,11 +26,11 @@ class BankAccount
     @balance -= amount
     create_transaction(0, amount, @balance)
   end
-  
+
   def print_statement
     @bank_statement.print(@transactions)
   end
-  
+
   def create_transaction(amount, balance, date)
     transaction = @transaction.new(amount, balance, date)
     @transactions << transaction

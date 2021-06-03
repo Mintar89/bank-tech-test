@@ -87,6 +87,14 @@ As a user
 So I am not overdrawn
 I want my account to prevent withdrawal if I have insufficient funds
 ```
+### Aproach and code structure
+
+* I started by writing user stories according to the requirements
+* I then decided on how many classes the program will have and their resposibilities 
+* Bank account class is responsible for updating the account balance and creates transactions
+* Transaction class is responsible for storing information on transactions 
+* Printer class is responsible for formatting and printing statements
+
 
 
 
