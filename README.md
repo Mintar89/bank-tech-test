@@ -37,6 +37,24 @@ date || credit || debit || balance
 * Clone the repo
 * Run bundle install
 * Run rspec to test
+* Run irb in your terminal to manually test the code, see example output below:
+
+```
+3.0.0 :001 > require './lib/bank_account'
+ => true 
+ => #<BankAccount:0x00007fae75a5c550 @balance=0, @zero_balance=0, @transaction=Transaction, @transactions... 
+3.0.0 :003 > bank_account.deposit(1000)
+ => [#<Transaction:0x00007fae75953cf8 @credit=1000, @debit=0, @current_balance=1000, @date="03/06/2021">] 
+ => [#<Transaction:0x00007fae75953cf8 @credit=1000, @debit=0, @current_balance=1000, @date="03/06/2021">, #<Transaction:0x00007fae75acf500 @credit=2000, @debit=0, @current_balance=3000, @date="03/06/2021">] 
+3.0.0 :005 > bank_account.withdraw(500)
+ => [#<Transaction:0x00007fae75953cf8 @credit=1000, @debit=0, @current_balance=1000, @date="03/06/2021">, #<Transaction:0x00007fae75acf500 @credit=2000, @debit=0, @current_balance=3000, @date="03/06/2021">, #<Transaction:0x00007fae75a1f0d8 @credit=0, @debit=500, @current_balance=2500, @date="03/06/2021">] 
+3.0.0 :006 > bank_account.print_statement
+date || credit || debit || balance
+03/06/2021 || 0.00 || 500.00 || 2500.00
+03/06/2021 || 2000.00 || 0.00 || 3000.00
+03/06/2021 || 1000.00 || 0.00 || 1000.00
+```
+
 
 ### User Stories
 
@@ -62,6 +80,12 @@ I would like to make a withdrawal
 As a user
 So I can see my account history
 I would like to print my bank statement 
+```
+
+```
+As a user
+So I am not overdrawn
+I want my account to prevent withdrawal if I have insufficient funds
 ```
 
 

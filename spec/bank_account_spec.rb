@@ -35,5 +35,8 @@ describe BankAccount do
     end
   end
 
-
+  it 'raises an error if no funds available' do
+    account.deposit(100)
+    expect { account.withdraw(200) }.to raise_error 'Insufficient funds'
+  end
 end
