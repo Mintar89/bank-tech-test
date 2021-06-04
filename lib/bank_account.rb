@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'transaction'
+require_relative 'printer'
 
 class BankAccount
   attr_reader :balance, :transactions, :overdraft_limit
@@ -8,11 +9,12 @@ class BankAccount
   DEFAULT_BALANCE = 0
   ZERO_BALANCE = 0
 
-  def initialize(transaction = Transaction)
+  def initialize(transaction = Transaction, printer = Printer.new)
     @balance = DEFAULT_BALANCE
     @zero_balance = ZERO_BALANCE
     @transaction = transaction
     @transactions = []
+    @printer = printer
   end
 
   def deposit(amount)
@@ -28,7 +30,7 @@ class BankAccount
   end
 
   def print_statement
-    @bank_statement.print(@transactions)
+    @printer.print(@transactions)
   end
 
   def create_transaction(amount, balance, date)
