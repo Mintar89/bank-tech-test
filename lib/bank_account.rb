@@ -9,32 +9,32 @@ class BankAccount
   DEFAULT_BALANCE = 0
   ZERO_BALANCE = 0
 
-  def initialize(transaction = Transaction, printer = Printer.new)
+  def initialize(transaction_class = Transaction, printer = Printer.new)
     @balance = DEFAULT_BALANCE
     @zero_balance = ZERO_BALANCE
-    @transaction = transaction
+    @transaction_class = transaction_class
     @transactions = []
     @printer = printer
   end
 
-  def deposit(amount)
-    @balance += amount
-    create_transaction(amount, 0, @balance)
+  def deposit(debit)
+    @balance += debit
+    create_transaction(debit, 0, @balance)
   end
 
-  def withdraw(amount)
-    raise 'Insufficient funds' if @balance - amount < @zero_balance
+  def withdraw(credit)
+    raise 'Insufficient funds' if @balance - credit < @zero_balance
 
-    @balance -= amount
-    create_transaction(0, amount, @balance)
+    @balance -= credit
+    create_transaction(0, credit, @balance)
   end
 
   def print_statement
     @printer.print(@transactions)
   end
 
-  def create_transaction(amount, balance, date)
-    transaction = @transaction.new(amount, balance, date)
+  def create_transaction(credit, debit, balance)
+    transaction = @transaction_class.new(credit, debit, balance)
     @transactions << transaction
   end
 end
